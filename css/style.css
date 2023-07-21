@@ -1,12 +1,13 @@
 @import url('https://fonts.googleapis.com/css2?family=Russo+One&display=swap');
-/* ---- Variable CSS ---- */
-:root{
+ /* ========== VARIABLE CSS ============= */
+ :root{
     --header-height: 3rem;
 
-    /* ======== Colours ======= */
+    /* ============ COLORS ================ */
+        /* DECIDE YOUR BROWSER THEME */
+    --hue-color: 250;  /* GREEN: 144,  Blue: 230, Purple: 250, Pink: 340 */
 
-    /* --- Browser theme --- */
-    --hue-color: 250;
+        /* HSL Color Mode */
     --first-color: hsl(var(--hue-color), 69%, 58%);
     --first-color-second: hsl(var(--hue-color), 71%, 47%);
     --first-color-alt: hsl(var(--hue-color), 55%, 50%);
@@ -23,7 +24,7 @@
     --scroll-thumb-color: hsl(var(--hue-color), 15%, 70%);
     --gradient-color: linear-gradient(140deg, rgba(93,72,199,1) 0%, rgba(94,91,201,1) 40%, rgba(101,125,157,1) 100%);
 
-    /* --- Font and Typography --- */
+    /*  ================ FONT AND TYPOGRAPHY ============== */
     --gullible-font: 'Maven Pro', sans-serif;
     --body-font: 'Poppins', sans-serif;
     --roboto-font: 'Roboto', sans-serif;
@@ -44,8 +45,8 @@
     --font-semi-bold:600;
     --font-bold: 700;
 
-    /* margin size - bottom */
-    /*.25rem = 4px, .5rem = 8px, 1rem = 16px, .75rem = 12px */
+    /* Margin Size - BOTTOM */
+    /* .25rem = 4px, .5rem= 8px, 1rem= 16px, .75rem= 12px */
     --mb-0-25: 0.25rem;
     --mb-0-5: 0.5rem;
     --mb-0-75: 0.75rem;
@@ -56,15 +57,22 @@
     --mb-2-5: 2.5rem;
     --mb-3: 3rem;
 
-    /* ===== Z-index ==== */
-    --z-tooltip: 10;
+    /*  ======== Z-index ========= */
+    --z-tooltip:10;
     --z-fixed: 100;
     --z-modal: 1000;
 
-}
 
+    /*  ======== Background  ========= */
+    --background-body-color: hsl(var(--hue-color), 66%, 99%);
+    --border-color: none;
+    --border-style: none;
+    --footer-color: var(--first-color);
+
+
+}
 /* FONT SIZE FOR LARGER DEVICES */
-@media screen and (min-width: 968px){
+@media screen  and (min-width: 968px){
     :root{
         --big-font-size: 3rem;
         --h1-font-size: 2.5rem;
@@ -74,10 +82,12 @@
         --small-font-size: 0.875rem;
         --smaller-font-size: 0.813rem;
     }
+    
 }
 
-/* Dark Theme */
+/* =========== VARIABLE COLOR DARK THEME ============ */
 body.dark-theme{
+    /* HSL Color Mode */
     --first-color: hsl(var(--hue-color), 69%, 58%); /* Not changed */
     --first-color-second: hsl(var(--hue-color), 30%, 8%);
     --first-color-alt: hsl(var(--hue-color), 55%, 50%); /* Not changed */
@@ -97,15 +107,17 @@ body.dark-theme{
     --border-color: rgba(255, 255, 255, 0.425);
     --border-style: solid;
     --footer-color: hsl(250, 53%, 18%);
+
 }
 
-/* Nav buttons dark/light theme */
-.nav_btns{
+/* ======= NAV BUTTONS DARK/LIGHT THEME ==================== */
+.nav__btns{
     display: flex;
     align-items: center;
     padding-left: var(--mb-0-5);
     margin: 0;
     margin-top: -5px;
+    gap: var(--mb-0-75);
 }
 
 .change-theme{
@@ -178,10 +190,44 @@ img{
 .section__subtitle{
     text-align: center;
 }
+/* ========================= BUTTONS STYLING =====================  */
+.button{
+    display: inline-block;
+    background-color: var(--first-color);
+    color: #FFF;
+    padding: 1rem;
+    border-radius: .5rem;
+    font-weight: var(--font-medium);
+}
 
-/* Layout */
-.container {
-    margin-right: var(--mb-1);
+.button:hover{
+    background-color: var(--first-color-alt);
+    color: #FFF;
+}
+
+.button__icon{
+    font-size: 1.25rem;
+    margin-left: var(--mb-0-5);
+    transition: .3s;
+}
+
+.button--flex{
+    display: inline-flex;
+    align-items: center;
+}
+
+.button--white{
+    background-color: #FFF;
+    color: var(--first-color);
+}
+
+.button--white:hover{
+    background-color: var(--first-color-lighter);
+}
+
+/*================================ LAYOUT ============================= */
+.container{
+    margin-right: auto;
 }
 
 .grid{
@@ -189,11 +235,113 @@ img{
 }
 
 .header{
-    width: 100;
+    width: 100%;
     position: fixed;
     bottom: 0;
     left: 0;
     right: 0;
     z-index: var(--z-fixed);
     background-color: var(--body-color);
+    margin-right: var(--mb-0-25);
+}
+
+
+/* ===================== NAV STYLING ================== */
+.nav{
+    max-width: 968px;
+    height: var(--header-height);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-left: var(--mb-0-5);
+    margin-right: var(--mb-0-25);
+}
+
+.nav__logo,
+.nav__toggle{
+    color: var(--title-color);
+    font-weight: var(--font-medium);
+}
+
+.nav__logo:hover{
+    color: var(--first-color);
+}
+
+.nav__toggle{
+    font-size: var(--h3-font-size);
+    cursor: pointer;
+    margin-right: 2rem;
+}
+
+.nav__toggle:hover{
+    color: var(--first-color);
+}
+
+.navbar-brand{
+    font-family: var(--robotomono-font);
+}
+
+@media screen and (max-width: 768px) {
+    .nav__menu{
+        position: fixed;
+        bottom: -100%;
+        right: 0;
+        left:0;
+        width: 100%;
+        background-color: var(--body-color);
+        padding: 2rem 1.5rem 4rem;
+        box-shadow: 0 -1px 4px rgba(0, 0, 0, 0.15);
+        border-radius: 1.5rem 1.5rem 0 0;
+        transition: .5s;
+    }
+}
+
+.nav__list{
+    grid-template-columns: repeat(3, 1fr);
+    gap: 2rem;
+}
+
+.nav__link{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    font-size: var(--small-font-size);
+    color: var(--title-color);
+    font-weight: var(--font-medium);
+}
+
+.nav__link:hover{
+    color: var(--first-color);
+}
+
+.nav__icon{
+    font-size: 1.2rem;
+}
+
+.nav__close{
+    position: absolute;
+    right: 1.3rem;
+    bottom: .5rem;
+    font-size: 1.5rem;
+    cursor: pointer;
+    color: var(--first-color);
+}
+
+.nav__close:hover{
+    color: var(--first-color-alt);
+}
+
+/* SHOW MENU */
+.show-menu{
+    bottom: 0;
+}
+
+/* Active link */
+.active-link{
+    color: var(--first-color);
+}
+
+/* Change background header */
+.scroll-header{
+    box-shadow: 0 -1px 4px rgba(0, 0, 0, 0.15);
 }
