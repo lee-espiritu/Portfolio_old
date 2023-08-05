@@ -113,7 +113,7 @@ function scrollUp(){
 }
 window.addEventListener('scroll', scrollUp)
 
-//===================================== SCROLL SECTION ACTIVE HIGHLIGHT =========================
+//===================================== SCROLL SECTION ACTIVE HIGHLIGHT ==========================
 
 const sections = document.querySelectorAll('section[id]')
 
