@@ -1519,5 +1519,35 @@ form textarea{
 
 /* Largest Screen */
 @media screen and (min-width: 1024px){
+  .header,
+  .main,
+  .footer__container{
+    padding: 0;
+  }
 
+  #home{
+    height: 85vh;
+  }
+
+  .home__social{
+    transform: translateX(-7.5rem);
+  }
+
+  .contact__form{
+    width: 460px;
+  }
+
+  .contact__inputs{
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .contact__container{
+    padding-left: var(--mb-3);
+    padding-top: var(--mb-3);
+    row-gap: 4rem;
+  }
+
+  .form{
+    min-width: 700px;
+  }
 }
